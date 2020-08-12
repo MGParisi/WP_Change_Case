@@ -1,7 +1,8 @@
 === Change Titles Case ===
 Contributors: Michael Parisi
 Plugin Name: Change Titles Case
-Plugin URI: https://properprogramming.com/change-titles-case/
+Plugin URI: https://properprogramming.com/wp-change-titles-case/
+Author URI: https://properprogramming.com
 Donate link: https://paypal.me/properprogramming?locale.x=en_US
 Tags: title, caps, backend, utilities, admin
 Requires at least: 5.0

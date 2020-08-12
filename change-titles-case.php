@@ -14,7 +14,7 @@
  *
  * @wordpress-plugin
  * Plugin Name:       Change Titles Case
- * Plugin URI:        http://properprogramming.com
+ * Plugin URI:        https://properprogramming.com/wp-change-titles-case/
  * Description:       Allows for the batch processing of title case on current posts and categories.
  * Version:           1.0.0
  * Author:            Michael Parisi
