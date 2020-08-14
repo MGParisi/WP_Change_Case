@@ -11,8 +11,8 @@
  * @author     Micheal Parisi (Proper Programming, LLC)
  * @copyright  2020
  *
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/includes
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/includes
  */
 
 /**
@@ -27,10 +27,10 @@
  * @since      1.0.0
  * @author     Micheal Parisi (Proper Programming, LLC) <mgparisicpu@gmail.comm>
  * @copyright  2020
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/includes
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/includes
  */
-class Change_Case_Data {
+class c_t_c_Change_Case_Data {
 
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
@@ -40,7 +40,7 @@ class Change_Case_Data {
 	 * @author     Micheal Parisi (Proper Programming, LLC)
 	 * @copyright  2020
 	 * @access     protected
-	 * @var      Change_Case_Data_Loader $loader Maintains and registers all hooks for the plugin.
+	 * @var      c_t_c_Change_Case_Data_Loader $loader Maintains and registers all hooks for the plugin.
 	 */
 	protected $loader;
 
@@ -106,10 +106,10 @@ class Change_Case_Data {
 	 *
 	 * Include the following files that make up the plugin:
 	 *
-	 * - Change_Case_Data_Loader. Orchestrates the hooks of the plugin.
-	 * - Change_Case_Data_i18n. Defines internationalization functionality.
-	 * - Change_Case_Data_Admin. Defines all hooks for the admin area.
-	 * - Change_Case_Data_Public. Defines all hooks for the public side of the site.
+	 * - c_t_c_Change_Case_Data_Loader. Orchestrates the hooks of the plugin.
+	 * - c_t_c_Change_Case_Data_i18n. Defines internationalization functionality.
+	 * - c_t_c_Change_Case_Data_Admin. Defines all hooks for the admin area.
+	 * - c_t_c_Change_Case_Data_Public. Defines all hooks for the public side of the site.
 	 *
 	 * Create an instance of the loader which will be used to register the hooks
 	 * with WordPress.
@@ -138,14 +138,14 @@ class Change_Case_Data {
 		 */
 		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-change-titles-case-admin.php';
 
-		$this->loader = new Change_Case_Data_Loader();
+		$this->loader = new c_t_c_Change_Case_Data_Loader();
 
 	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
 	 *
-	 * Uses the Change_Case_Data_i18n class in order to set the domain and to register the hook
+	 * Uses the c_t_c_Change_Case_Data_i18n class in order to set the domain and to register the hook
 	 * with WordPress.
 	 *
 	 * @since    1.0.0
@@ -153,7 +153,7 @@ class Change_Case_Data {
 	 */
 	private function set_locale() {
 
-		$plugin_i18n = new Change_Case_Data_i18n();
+		$plugin_i18n = new c_t_c_Change_Case_Data_i18n();
 
 		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 
@@ -168,7 +168,7 @@ class Change_Case_Data {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Change_Case_Data_Admin(
+		$plugin_admin = new c_t_c_Change_Case_Data_Admin(
 			$this->get_plugin_name(), $this->get_version(), $this->get_text_domain()
 		);
 
@@ -188,15 +188,15 @@ class Change_Case_Data {
 		//$this->loader->add_action( 'admin_notices', $plugin_admin, 'print_plugin_admin_notices');
 		//$this->loader->add_action('wp_ajax_td_set_title_case', $plugin_admin, 'change_titles_case');
 
-		$this->loader->add_action('wp_loaded', $plugin_admin, 'register_bulk_actions');
+		$this->loader->add_action('wp_loaded', $plugin_admin, 'c_t_c_register_bulk_actions');
 		//add_action( 'wp_ajax_td_get_fields', 'td_post_type_field_select_action_callback' );
 		//$this->loader->add_filter('bulk_actions-edit-page', $plugin_admin, 'register_my_bulk_actions' );
 		//$this->loader->add_filter('bulk_actions-edit-post', $plugin_admin, 'register_my_bulk_actions' );
-		//$this->loader->add_filter( 'handle_bulk_actions-edit-page', $plugin_admin, 'change_case_bulk_action_handler', 10, 3 );
-		//$this->loader->add_filter( 'handle_bulk_actions-edit-post', $plugin_admin, 'change_case_bulk_action_handler', 10, 3 );
+		//$this->loader->add_filter( 'handle_bulk_actions-edit-page', $plugin_admin, 'c_t_c_change_case_bulk_action_handler', 10, 3 );
+		//$this->loader->add_filter( 'handle_bulk_actions-edit-post', $plugin_admin, 'c_t_c_change_case_bulk_action_handler', 10, 3 );
 		$this->loader->add_action('admin_notices', $plugin_admin, 'change_case_bulk_action_admin_notice');
 		$this->loader->add_action('wp_loaded', $plugin_admin, 'save_form');
-		$this->loader->add_action('rest_api_init', $plugin_admin, 'init_routes');
+		$this->loader->add_action('rest_api_init', $plugin_admin, 'c_t_c_init_routes');
 
 		//$this->loader->add_action( 'added_option', $plugin_admin, 'save_form' , 10, 2);
 		//$this->loader->add_action( 'updated_option', $plugin_admin, 'save_form' , 10, 3);
@@ -247,7 +247,7 @@ class Change_Case_Data {
 	/**
 	 * The reference to the class that orchestrates the hooks with the plugin.
 	 *
-	 * @return    Change_Case_Data_Loader    Orchestrates the hooks of the plugin.
+	 * @return    c_t_c_Change_Case_Data_Loader    Orchestrates the hooks of the plugin.
 	 * @since     1.0.0
 	 */
 	public function get_loader() {
@@ -262,7 +262,7 @@ class Change_Case_Data {
 	 * @access   private
 	 */
 	private function define_public_hooks() {
-		$plugin_public = new Change_Case_Data_Public(
+		$plugin_public = new c_t_c_Change_Case_Data_Public(
 			$this->get_plugin_name(), $this->get_version(), $this->get_text_domain()
 		);
 

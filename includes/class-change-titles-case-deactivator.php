@@ -8,8 +8,8 @@
  * @author     Micheal Parisi (Proper Programming, LLC)
  * @copyright  2020
  *
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/includes
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/includes
  */
 
 /**
@@ -20,10 +20,10 @@
  * @since      1.0.0
  * @author     Micheal Parisi (Proper Programming, LLC)  Michael Parisi <mgparisicpu@gmail.comm>
  * @copyright  2020
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/includes
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/includes
  */
-class Change_Case_Data_Deactivator {
+class c_t_c_Change_Case_Data_Deactivator {
 
 	/**
 	 * Short Description. (use period)

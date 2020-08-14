@@ -24,7 +24,7 @@
  * @author     Micheal Parisi (Proper Programming, LLC)
  * @copyright  2020
  *
- * @package    Change_Case_Data
+ * @package    c_t_c_Change_Case_Data
  */
 
 // If uninstall not called from WordPress, then exit.

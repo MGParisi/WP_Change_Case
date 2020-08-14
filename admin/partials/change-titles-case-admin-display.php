@@ -10,8 +10,8 @@
  * @author     Micheal Parisi (Proper Programming, LLC)
  * @copyright  2020
  *
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/admin/partials
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/admin/partials
  */
 ?>
 
@@ -36,7 +36,7 @@ if(current_user_can('edit_others_pages')) {
 
 		<form method='post' id='td_change_titles_case__form'>
 
-			<?php //echo Change_Case_Data_Admin::generate_post_select('post_types');; ?>
+			<?php //echo c_t_c_Change_Case_Data_Admin::generate_post_select('post_types');; ?>
 			<input type='hidden' name='action' value='td_form_response'>
 			<?php wp_nonce_field('save_form', 'td_change_case_data__nonce') ?>
 			<div class='container'>

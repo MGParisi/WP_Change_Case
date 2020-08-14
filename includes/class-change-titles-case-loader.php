@@ -8,8 +8,8 @@
  * @author     Micheal Parisi (Proper Programming, LLC)
  * @copyright  2020
  *
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/includes
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/includes
  */
 
 /**
@@ -19,11 +19,11 @@
  * the plugin, and register them with the WordPress API. Call the
  * run function to execute the list of actions and filters.
  *
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/includes
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/includes
  * @author     Michael Parisi <mgparisicpu@gmail.comm>
  */
-class Change_Case_Data_Loader {
+class c_t_c_Change_Case_Data_Loader {
 
 	/**
 	 * The array of actions registered with WordPress.

@@ -8,8 +8,8 @@
  * @author     Micheal Parisi (Proper Programming, LLC)
  * @copyright  2020
  *
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/admin
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/admin
  */
 
 /**
@@ -20,11 +20,11 @@
  *
  * https://pippinsplugins.com/batch-processing-for-big-data/
  *
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/admin
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/admin
  * @author     Michael Parisi <mgparisicpu@gmail.comm>
  */
-class Change_Case_Data_Admin {
+class c_t_c_Change_Case_Data_Admin {
 	const DEBUG = FALSE;
 	const OPTION_KEY = 'tc_change_case_defaults';
 	public $term = TRUE;
@@ -85,10 +85,10 @@ class Change_Case_Data_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Change_Case_Data_Loader as all of the hooks are defined
+		 * defined in c_t_c_Change_Case_Data_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Change_Case_Data_Loader will then create the relationship
+		 * The c_t_c_Change_Case_Data_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -173,14 +173,14 @@ class Change_Case_Data_Admin {
 	 */
 	public static function save_option($uppercases, $lowercases) {
 		$array = array('uppercases' => strtolower($uppercases), 'lowercases' => strtolower($lowercases));
-		if(get_option(TC_OPTION_KEY)) {
-			update_option(TC_OPTION_KEY, $array);
+		if(get_option(C_T_C_TC_OPTION_KEY)) {
+			update_option(C_T_C_TC_OPTION_KEY, $array);
 		} else {
-			add_option(TC_OPTION_KEY, $array);
+			add_option(C_T_C_TC_OPTION_KEY, $array);
 		}
 		if(self::DEBUG) {
 			error_log(
-				"Transform Case Option: " . print_r(get_option(TC_OPTION_KEY), TRUE) . '/' . print_r($array, TRUE)
+				"Transform Case Option: " . print_r(get_option(C_T_C_TC_OPTION_KEY), TRUE) . '/' . print_r($array, TRUE)
 			);
 		}
 	}
@@ -283,7 +283,7 @@ class Change_Case_Data_Admin {
 	 * Register the Bulk Actions
 	 * Note: This is done here so that it can be triggered when wordpress is done loading all plugins and themes.
 	 *
-	 * @param \Change_Case_Data_Admin $plugin_admin
+	 * @param \c_t_c_Change_Case_Data_Admin $plugin_admin
 	 */
 	public function register_bulk_actions() {
 
@@ -543,7 +543,7 @@ class Change_Case_Data_Admin {
 	 * @return string
 	 */
 	private static function to_title_case($string) {
-		$option = get_option(TC_OPTION_KEY);
+		$option = get_option(C_T_C_TC_OPTION_KEY);
 		/* Words that should be entirely lower-case */
 		$uppercases = explode(',', mb_strtolower(html_entity_decode($option['uppercases'])));
 		/* Words that should be entirely upper-case (need to be lower-case in this list!) */
@@ -780,10 +780,10 @@ class Change_Case_Data_Admin {
 		 * This function is provided for demonstration purposes only.
 		 *
 		 * An instance of this class should be passed to the run() function
-		 * defined in Change_Case_Data_Loader as all of the hooks are defined
+		 * defined in c_t_c_Change_Case_Data_Loader as all of the hooks are defined
 		 * in that particular class.
 		 *
-		 * The Change_Case_Data_Loader will then create the relationship
+		 * The c_t_c_Change_Case_Data_Loader will then create the relationship
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
@@ -810,7 +810,7 @@ class Change_Case_Data_Admin {
 	 * Callback for the admin menu
 	 *
 	 * @since    1.0.0
-	 * @hooked \Change_Case_Data\define_admin_hooks();
+	 * @hooked \c_t_c_Change_Case_Data\define_admin_hooks();
 	 */
 	public function add_plugin_admin_menu() {
 		$html_form_page_hook = add_submenu_page(

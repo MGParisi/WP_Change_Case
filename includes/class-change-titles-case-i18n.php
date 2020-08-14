@@ -11,8 +11,8 @@
  * @author     Micheal Parisi (Proper Programming, LLC)
  * @copyright  2020
  *
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/includes
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/includes
  */
 
 /**
@@ -22,11 +22,11 @@
  * so that it is ready for translation.
  *
  * @since      1.0.0
- * @package    Change_Case_Data
- * @subpackage Change_Case_Data/includes
+ * @package    c_t_c_Change_Case_Data
+ * @subpackage c_t_c_Change_Case_Data/includes
  * @author     Michael Parisi <mgparisicpu@gmail.comm>
  */
-class Change_Case_Data_i18n {
+class c_t_c_Change_Case_Data_i18n {
 
 
 	/**

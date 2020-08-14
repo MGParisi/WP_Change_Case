@@ -38,21 +38,21 @@ if(!defined('WPINC')) {
 define('CHANGE_CASE_DATA_VERSION', '1.0.7');
 
 //key slug gor the option storage.
-define('TC_OPTION_KEY', 'tc_change_case_defaults');
+define('C_T_C_TC_OPTION_KEY', 'tc_change_case_defaults');
 //manually change.
 //$array = array('lowercases' => 'a,an,the,and,but,or,nor,if,then,else,when,at,by,from,for,in,off,on,out,over,to,into,with', 'uppercases' => 'asap,unhcr,wpse,wtf,add,adhd');
-//update_option(TC_OPTION_KEY, $array);
+//update_option(C_T_C_TC_OPTION_KEY, $array);
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-change-titles-case-activator.php
  */
-function activate_change_titles_case() {
+function c_t_c_activate_change_titles_case() {
 	require_once plugin_dir_path(__FILE__) . 'includes/class-change-titles-case-activator.php';
 	require_once plugin_dir_path(__FILE__) . 'admin/class-change-titles-case-admin.php';
-	Change_Case_Data_Activator::activate();
-	if(!get_option(TC_OPTION_KEY)) {
-		set_defaults();
+	c_t_c_Change_Case_Data_Activator::activate();
+	if(!get_option(C_T_C_TC_OPTION_KEY)) {
+		c_t_c_set_defaults();
 	}
 }
 
@@ -60,14 +60,14 @@ function activate_change_titles_case() {
 /**
  *
  */
-//set_defaults(false);
+//c_t_c_set_defaults(false);
 
 /**
  * Sets the default
  *
  * @param bool $add
  */
-function set_defaults($add = TRUE) {
+function c_t_c_set_defaults($add = TRUE) {
 	$array = array(
 		'lowercases' => 'a,an,the,and,but,or,nor,if,then,else,when,at,by,from,for,in,off,on,out,over,to,into,with',
 		'uppercases' => strtolower(
@@ -76,9 +76,9 @@ function set_defaults($add = TRUE) {
 	);
 
 	if($add === TRUE) {
-		add_option(TC_OPTION_KEY, $array);
+		add_option(C_T_C_TC_OPTION_KEY, $array);
 	} else {
-		update_option(TC_OPTION_KEY, $array);
+		update_option(C_T_C_TC_OPTION_KEY, $array);
 	}
 }
 
@@ -88,14 +88,14 @@ function set_defaults($add = TRUE) {
  * The code that runs during plugin deactivation.
  * This action is documented in includes/class-change-titles-case-deactivator.php
  */
-function deactivate_change_titles_case() {
+function c_t_c_deactivate_change_titles_case() {
 	require_once plugin_dir_path(__FILE__) . 'includes/class-change-titles-case-deactivator.php';
-	Change_Case_Data_Deactivator::deactivate();
+	c_t_c_Change_Case_Data_Deactivator::deactivate();
 }
 
 
-register_activation_hook(__FILE__, 'activate_change_titles_case');
-register_deactivation_hook(__FILE__, 'deactivate_change_titles_case');
+register_activation_hook(__FILE__, 'c_t_c_activate_change_titles_case');
+register_deactivation_hook(__FILE__, 'c_t_c_deactivate_change_titles_case');
 
 /**
  * The core plugin class that is used to define internationalization,
@@ -112,10 +112,10 @@ require plugin_dir_path(__FILE__) . 'includes/class-change-titles-case.php';
  *
  * @since    1.0.0
  */
-function run_change_titles_case() {
-	$plugin = new Change_Case_Data();
+function c_t_c_run_change_titles_case() {
+	$plugin = new c_t_c_Change_Case_Data();
 	$plugin->run();
 }
 
 
-run_change_titles_case();
+c_t_c_run_change_titles_case();
