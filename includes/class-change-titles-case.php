@@ -188,7 +188,7 @@ class c_t_c_Change_Case_Data {
 		//$this->loader->add_action( 'admin_notices', $plugin_admin, 'print_plugin_admin_notices');
 		//$this->loader->add_action('wp_ajax_td_set_title_case', $plugin_admin, 'change_titles_case');
 
-		$this->loader->add_action('wp_loaded', $plugin_admin, 'c_t_c_register_bulk_actions');
+		$this->loader->add_action('wp_loaded', $plugin_admin, 'register_bulk_actions');
 		//add_action( 'wp_ajax_td_get_fields', 'td_post_type_field_select_action_callback' );
 		//$this->loader->add_filter('bulk_actions-edit-page', $plugin_admin, 'register_my_bulk_actions' );
 		//$this->loader->add_filter('bulk_actions-edit-post', $plugin_admin, 'register_my_bulk_actions' );
