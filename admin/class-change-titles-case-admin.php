@@ -118,9 +118,6 @@ class c_t_c_Change_Case_Data_Admin {
 		$is_admin = $this->enforce_admin_permissions();
 		//Not the right action, don't do anything
 		if(!isset($_POST['action']) || $_POST['action'] !== 'td_form_response') {
-			if(self::DEBUG) {
-				error_log("td_form_response results invalid:" . print_r($_POST, TRUE));
-			}
 			return FALSE;
 		}
 
@@ -139,9 +136,6 @@ class c_t_c_Change_Case_Data_Admin {
 		 * Check the nonce.
 		 */
 		if(!check_admin_referer('save_form', 'td_change_case_data__nonce')) {
-			if(self::DEBUG) {
-				error_log("Nonce Verification Failed!" . print_r($_POST, TRUE));
-			}
 			//todo: add error message.
 			exit('No access!');
 		} else {
@@ -177,11 +171,6 @@ class c_t_c_Change_Case_Data_Admin {
 			update_option(C_T_C_TC_OPTION_KEY, $array);
 		} else {
 			add_option(C_T_C_TC_OPTION_KEY, $array);
-		}
-		if(self::DEBUG) {
-			error_log(
-				"Transform Case Option: " . print_r(get_option(C_T_C_TC_OPTION_KEY), TRUE) . '/' . print_r($array, TRUE)
-			);
 		}
 	}
 
@@ -256,16 +245,11 @@ class c_t_c_Change_Case_Data_Admin {
 	 * Todo: Needs Nonce check.
 	 */
 	public function get_CSV_Post_Request_Handler() {
-		if(self::DEBUG) {
-			error_log('LOADING, POST:' . print_r($_POST, TRUE));
-		}
+
 		if($this->enforce_admin_permissions()) {
 			//put change_case_uppercases and change_case_losercases
 			$options = get_option(self::OPTION_KEY);
 			if(is_array($options)) {
-				if(self::DEBUG) {
-					error_log(print_r($options, TRUE));
-				}
 				return json_encode(
 					array(
 						'change_case_uppercases' => $options['uppercases'],
@@ -471,9 +455,6 @@ class c_t_c_Change_Case_Data_Admin {
 	 */
 	public function change_case_case($type, $ids, $change_case_type = 'mixed') {
 		if(empty($ids)) {
-			if(self::DEBUG) {
-				error_log('No Posts Submitted' . print_r($ids, TRUE));
-			}
 			exit('No Posts Submitted');
 		}
 		if($type == 'posts') {
@@ -706,7 +687,7 @@ class c_t_c_Change_Case_Data_Admin {
 
 			if($theTitle !== $new_title) {
 				$count++;
-				$output = $id . '/' . $_POST['taxonomy'] . '==' . $theTitle . ' --> ' . $new_title;
+				$output = $id . '/' . esc_html($_POST['taxonomy']) . '==' . $theTitle . ' --> ' . $new_title;
 
 				if(self::DEBUG) {
 					error_log($output);
