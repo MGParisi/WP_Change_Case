@@ -35,7 +35,7 @@ if(current_user_can('edit_others_pages')) {
 		$this->plugin_name
 	); ?>
 	<?php _e(
-		'<p>When using Mixed Cases, Uppercase exception are words to transform into UPPERCASE while lowercase exceptions will transform words into lowercase.</p>',
+		'<p>When using Mixed Cases, Uppercase words will transform into UPPERCASE while lowercase words will transform into lowercase.</p>',
 		$this->plugin_name
 	); ?>
 
@@ -49,7 +49,7 @@ if(current_user_can('edit_others_pages')) {
 			<div class='container'>
 				<div id=change_case_main" class='row'>
 					<div class='change_case col-md-6'>
-						<h3><?php _e('Uppercase Exception', $this->plugin_name); ?></h3>
+						<h3><?php _e('Words to UPPERCASE', $this->plugin_name); ?></h3>
 
 						<div id='change_case_uppercases'>
 							<div class='change_case_grid'>
