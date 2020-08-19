@@ -11,13 +11,13 @@
 	 *
 	 * This enables you to define handlers, for when the DOM is ready:
 	 *
-	 * $(function() {
+	 * jQuery(function() {
 	 *
 	 * });
 	 *
 	 * When the window is loaded:
 	 *
-	 * $( window ).load(function() {
+	 * jQuery( window ).load(function() {
 	 *
 	 * });
 	 *
@@ -38,7 +38,7 @@
 
 	jQuery(document).ready(function ($) {
 
-		$(function () {
+		jQuery(function () {
 
 			multi_string_interface('change_case_uppercase');
 			multi_string_interface('change_case_lowercase');
@@ -53,12 +53,12 @@
 				/**
 				 * Setup click event to add the change case from the list.
 				 */
-				var size = $('#' + change_case_type + 's > div').length;
+				var size = jQuery('#' + change_case_type + 's > div').length;
 
-				$('<div class="change_case_grid">' +
+				jQuery('<div class="change_case_grid">' +
 					'<label for="' + change_case_type + 's"><input type="text" id="' + change_case_type + 's_' + size + '" class="change_case ' + change_case_type + '"  size="20" name="' + change_case_type + 's_' + size + '" value="' + default_value + '" placeholder="Input Value" />' +
 					'</label> ' +
-					'<a href="#" class="remove_' + change_case_type + 's">Remove</a></div>').appendTo($('#' + change_case_type + 's'));
+					'<a href="#" class="remove_' + change_case_type + 's">Remove</a></div>').appendTo(jQuery('#' + change_case_type + 's'));
 			}
 
 			/**
@@ -71,7 +71,7 @@
 				let remove_btn_id = '#remove_btn_' + change_case_type + '_1';
 
 				/** Set initial to false. **/
-				$(remove_btn_id).invisible();
+				jQuery(remove_btn_id).invisible();
 
 				/**
 				 * Toggle the visibility of the button.
@@ -81,16 +81,17 @@
 					/**
 					 * Setup click event to add the change case from the list.
 					 */
-					var i = $('#' + change_case_type + 's > div').length;
+					var i = jQuery('#' + change_case_type + 's > div').length;
 					if (i > 1) {
 						//remove_btn_change_case_type_1
-						$(remove_btn_id).visible();
+						jQuery(remove_btn_id).visible();
 					} else {
-						$(remove_btn_id).invisible();
+						jQuery(remove_btn_id).invisible();
 					}
 				}
 
-				$('#add_' + change_case_type + 's').live('click', function () {
+				console.log(change_case_type);
+				jQuery('#add_' + change_case_type + 's').on('click', function () {
 
 
 					/**
@@ -104,17 +105,17 @@
 				/**
 				 * Setup click event to remove the change case item set the list.
 				 */
-				$('.remove_' + change_case_type + 's').live('click', function () {
+				jQuery('.remove_' + change_case_type + 's').on('click', function () {
 
 					/**
 					 * Setup click event to add the change case from the list.
 					 */
-					var size = $('#' + change_case_type + 's > div').length;
+					var size = jQuery('#' + change_case_type + 's > div').length;
 
 					/** if there is only one Item **/
 					if (size > 1) {
 						/** Remove the Item **/
-						$(this).parent('div').remove();
+						jQuery(this).parent('div').remove();
 						size--;
 						//remove_btn_change_case_uppercases_1
 					}
@@ -127,9 +128,9 @@
 
 		});
 	});
-	$(document).ready(function (e) {
-		//$("#change_case_main").attr('disabled','disabled');
-		//$("#change_case_main").children().attr("disabled",true)
+	jQuery(document).ready(function (e) {
+		//jQuery("#change_case_main").attr('disabled','disabled');
+		//jQuery("#change_case_main").children().attr("disabled",true)
 		//("#change_case_main").children().prop('disabled',true);;
 		var jsonData = function () {
 			var objData = {security: change_titles_case.ajax_nonce};
@@ -150,9 +151,9 @@
 					var tf_count = 0;
 					exceptions.forEach(function (individual_value) {
 						if (tf_count !== 0) {
-							$('#add_' + id_base).click();
+							jQuery('#add_' + id_base).click();
 						}
-						$('#' + id_base + '_' + tf_count).val(individual_value);
+						jQuery('#' + id_base + '_' + tf_count).val(individual_value);
 						tf_count = tf_count + 1;
 						//change_case_uppercases_1
 					});
@@ -160,8 +161,8 @@
 
 				load_csv(results.change_case_uppercases, 'change_case_uppercases');
 				load_csv(results.change_case_lowercases, 'change_case_lowercases');
-				//$("#change_case_main").attr('disabled','enabled');
-				//$("#dcacl").children().attr("disabled","enabled");
+				//jQuery("#change_case_main").attr('disabled','enabled');
+				//jQuery("#dcacl").children().attr("disabled","enabled");
 			},
 			error: function (error) {
 				console.log(error);

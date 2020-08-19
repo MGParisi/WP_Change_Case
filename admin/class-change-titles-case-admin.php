@@ -144,8 +144,8 @@ class c_t_c_Change_Case_Data_Admin {
 			}
 		}
 		self::save_option(
-			self::convert_post_to_array('change_case_uppercases'),
-			self::convert_post_to_array('change_case_lowercases')
+			self::convert_post_to_string('change_case_uppercases'),
+			self::convert_post_to_string('change_case_lowercases')
 		);
 
 		return TRUE;
@@ -187,7 +187,7 @@ class c_t_c_Change_Case_Data_Admin {
 	/**
 	 * @param $type
 	 */
-	public static function convert_post_to_array($type) {
+	public static function convert_post_to_string($type) {
 		/**
 		 * Join the $_POST results in a csv.
 		 *
@@ -528,17 +528,14 @@ class c_t_c_Change_Case_Data_Admin {
 		$no_punc_lower = self::remove_punctuation_from_array($lowercases);
 		$no_punc_words = self::remove_punctuation_from_array($words);
 
-		error_log(implode(',', $no_punc_upper));
-		error_log(implode(',', $no_punc_lower));
+		//error_log(implode(',', $no_punc_upper));
+		//error_log(implode(',', $no_punc_lower));
 		/* iterate over words */
 
 		foreach($words as $position => $word) {
 			/* re-capitalize lowercases */
 			$no_punc_word = $no_punc_words[$position];
-			$decoded = html_entity_decode($word);
-			error_log(
-				'Changing Case for the word:' . $word . ' no_punc_word: ' . $no_punc_word . ' decoded:' . $decoded
-			);
+
 			if(in_array($no_punc_word, $no_punc_upper)) {
 				$words[$position] = mb_strtoupper($word);
 				/* capitalize first letter of all other words, if... */

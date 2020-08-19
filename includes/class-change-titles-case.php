@@ -87,11 +87,8 @@ class c_t_c_Change_Case_Data {
 	 * @copyright  2020
 	 */
 	public function __construct() {
-		if(defined('CHANGE_CASE_DATA_VERSION')) {
-			$this->version = CHANGE_CASE_DATA_VERSION;
-		} else {
-			$this->version = '1.0.7';
-		}
+		$this->version = CHANGE_CASE_DATA_VERSION;
+
 		$this->plugin_name = 'change-titles-case';
 		$this->plugin_text_domain = 'change-titles-case';
 
@@ -196,7 +193,7 @@ class c_t_c_Change_Case_Data {
 		//$this->loader->add_filter( 'handle_bulk_actions-edit-post', $plugin_admin, 'c_t_c_change_case_bulk_action_handler', 10, 3 );
 		$this->loader->add_action('admin_notices', $plugin_admin, 'change_case_bulk_action_admin_notice');
 		$this->loader->add_action('wp_loaded', $plugin_admin, 'save_form');
-		$this->loader->add_action('rest_api_init', $plugin_admin, 'c_t_c_init_routes');
+		$this->loader->add_action('rest_api_init', $plugin_admin, 'init_routes');
 
 		//$this->loader->add_action( 'added_option', $plugin_admin, 'save_form' , 10, 2);
 		//$this->loader->add_action( 'updated_option', $plugin_admin, 'save_form' , 10, 3);
