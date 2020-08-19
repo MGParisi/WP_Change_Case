@@ -473,22 +473,14 @@ class c_t_c_Change_Case_Data_Admin {
 			);
 		}
 
-		$return = NULL;
 		$count = 0;
 		foreach($ids as $id) {
 			$theTitle = get_the_title($id);
 			$new_title = self::get_new_title($change_case_type, $theTitle);
 
-			if($theTitle !== $new_title) {
+			if($theTitle !== FALSE && $theTitle !== $new_title) {
 
 				$count++;
-				$output = $id . '==' . $theTitle . ' --> ' . $new_title;
-
-				if(self::DEBUG) {
-					error_log($output);
-				}
-				//echo $output;
-				$return .= '<div>' . $output . '</div>';
 
 				wp_update_post(
 					array(
