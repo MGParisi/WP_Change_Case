@@ -35,7 +35,7 @@ if(current_user_can('edit_others_pages')) {
 		$this->plugin_name
 	); ?>
 	<?php _e(
-		'<p>When using Mixed Cases, Uppercase exception are words to transform into UPPERCASE while lowercase exceptions will transform words into lowercase .',
+		'<p>When using Mixed Cases, Uppercase exception are words to transform into UPPERCASE while lowercase exceptions will transform words into lowercase.</p>',
 		$this->plugin_name
 	); ?>
 
