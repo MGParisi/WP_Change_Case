@@ -30,7 +30,14 @@ if(current_user_can('edit_others_pages')) {
 
 	<h1><?php echo esc_html(get_admin_page_title()); ?></h1>
 	<h2><?php _e('Mixed Case Options', $this->plugin_name); ?></h2>
-	<?php _e('Offers Exceptions to the Mix Case Conversion', $this->plugin_name); ?>
+	<?php _e(
+		'<p>Offers Exceptions to the Mix Case Conversion.  Enter a word in each field. Comma separated lists are acceptable if bulk adding words.</p>',
+		$this->plugin_name
+	); ?>
+	<?php _e(
+		'<p>When using Mixed Cases, Uppercase exception are words to transform into UPPERCASE while lowercase exceptions will transform words into lowercase .',
+		$this->plugin_name
+	); ?>
 
 	<div class='td_change_titles_case__form'>
 
