@@ -102,23 +102,26 @@
 					return false;
 				});
 
+				let selector = '.remove_' + change_case_type + 's';
+				//console.log(selector);
 				/**
 				 * Setup click event to remove the change case item set the list.
 				 */
-				jQuery('.remove_' + change_case_type + 's').on('click', function () {
+				jQuery('body').on('click', selector, function () {
 
 					/**
 					 * Setup click event to add the change case from the list.
 					 */
-					var size = jQuery('#' + change_case_type + 's > div').length;
+					//let size = jQuery('#' + change_case_type + 's > div').length;
 
+					//console.log(size);
 					/** if there is only one Item **/
-					if (size > 1) {
-						/** Remove the Item **/
-						jQuery(this).parent('div').remove();
-						size--;
-						//remove_btn_change_case_uppercases_1
-					}
+					//if (size > 1) {
+					/** Remove the Item **/
+					jQuery(this).parent('div').remove();
+					size--;
+					//remove_btn_change_case_uppercases_1
+					//}
 					toggle_ban_visibility(change_case_type);
 					return false;
 
