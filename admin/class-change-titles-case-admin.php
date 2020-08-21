@@ -213,7 +213,7 @@ class c_t_c_Change_Case_Data_Admin {
 				if(isset($value)) {
 					$value = strtolower($value);
 					if(!in_array($value, $dupeArr)) {
-						$dupeArr[] = $value;
+						$dupeArr[] = trim($value);
 					}
 				}
 			}
