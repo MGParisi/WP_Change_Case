@@ -168,6 +168,7 @@ class c_t_c_Change_Case_Data_Admin {
 	public static function save_option($uppercases, $lowercases) {
 		$array = array('uppercases' => strtolower($uppercases), 'lowercases' => strtolower($lowercases));
 		if(get_option(C_T_C_TC_OPTION_KEY)) {
+			//error_log(print_r($array, true));
 			update_option(C_T_C_TC_OPTION_KEY, $array);
 		} else {
 			add_option(C_T_C_TC_OPTION_KEY, $array);
@@ -186,6 +187,7 @@ class c_t_c_Change_Case_Data_Admin {
 
 	/**
 	 * @param $type
+	 * return's array of User Data.
 	 */
 	public static function convert_post_to_string($type) {
 		/**
@@ -197,6 +199,7 @@ class c_t_c_Change_Case_Data_Admin {
 		$count = 0;
 		$dupeArr = array();
 
+		//error_log(print_r($_POST, true));
 		/*
 		 * Put all of the values in the array.  Lowercasing and trimming them all.  Dropping all empty ones.
 		 * Removing all duplicates.
@@ -205,15 +208,15 @@ class c_t_c_Change_Case_Data_Admin {
 
 			//error_log(print_r(strpos($key, $type) ), true);
 			$position = strpos($key, $type);
-			if(self::DEBUG) {
-				error_log("Position: $position Value: $value String: $string");
-			}
+
 			if($position === 0 && isset($value)) {
 				$value = trim($value);
 				if(isset($value)) {
 					$value = strtolower($value);
+					$value = str_replace("\\'", "'", trim($value));
+					$value = str_replace('\"', '"', trim($value));
 					if(!in_array($value, $dupeArr)) {
-						$dupeArr[] = trim($value);
+						$dupeArr[] = str_replace('u00a0', '', $value);;
 					}
 				}
 			}
@@ -467,11 +470,6 @@ class c_t_c_Change_Case_Data_Admin {
 	public function change_case_case_post($ids, $change_case_type = 'mixed') {
 		global $post;
 
-		if(self::DEBUG) {
-			error_log(
-				"Post ID's:" . implode(',', $ids) . " change_case_type:" . $change_case_type
-			);
-		}
 
 		$count = 0;
 		foreach($ids as $id) {
@@ -535,7 +533,7 @@ class c_t_c_Change_Case_Data_Admin {
 		foreach($words as $position => $word) {
 			/* re-capitalize lowercases */
 			$no_punc_word = $no_punc_words[$position];
-
+			error_log($no_punc_word . '///' . print_r($no_punc_upper, TRUE) . '///' . print_r($no_punc_lower, TRUE));
 			if(in_array($no_punc_word, $no_punc_upper)) {
 				$words[$position] = mb_strtoupper($word);
 				/* capitalize first letter of all other words, if... */
@@ -571,8 +569,8 @@ class c_t_c_Change_Case_Data_Admin {
 			$no_period = rtrim($stripped, '.');
 			$no_ex = rtrim($no_period, '!');
 			$no_quest = rtrim($no_ex, '?');
-
-			$no_punc[$key] = trim($no_quest);
+			$encoded = htmlentities($no_quest);
+			$no_punc[$key] = trim($encoded);
 
 		}
 		return $no_punc;
@@ -584,7 +582,10 @@ class c_t_c_Change_Case_Data_Admin {
 	 * @param mixed $text
 	 */
 	private static function stripQuotes($text) {
-		return preg_replace('/^(\'(.*)\'|"(.*)")$/', '$2$3', $text);
+		$text = str_replace('"', "", $text);
+		$text = str_replace("'", "", $text);
+		$text = str_replace("’", "", $text);
+		return $text;
 	}
 
 	static private function mb_ucfirst($string, $encoding) {
@@ -596,11 +597,6 @@ class c_t_c_Change_Case_Data_Admin {
 	}
 
 	/**
-	 * Suppose to recognize when there is a quote in the front of the string, and to remove it so the UpperCase can be
-	 * finalized.  It doesn't work.
-	 *
-	 * Is suppose to trim out the first $ignore character, then cap the string... but it won't work... Not sure why,
-	 * but this is misserable. TODO: FIX FUCKING uCAPS!
 	 *
 	 * @param        $word
 	 * @param string $ignore
@@ -611,11 +607,8 @@ class c_t_c_Change_Case_Data_Admin {
 	 */
 	private static function caps_first(string $ignore, array $words, $position): array {
 		$char_pos = strrpos($words[$position], $ignore);
-		error_log(
-			"Attempting to caps first letter: " . $words[$position] . " $position Caps first: $char_pos Ignore $ignore"
-		);
-		if($char_pos === 0) {
 
+		if($char_pos === 0) {
 			$ltrim = self::lStringTrim($words[$position], $ignore);
 			$ucfirst = ucfirst($ltrim);
 			error_log("ltrim: $ltrim UCFirst: $ucfirst");
