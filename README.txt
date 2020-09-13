@@ -17,7 +17,7 @@ The title transformation plugin adds administration functions to the management 
 
 == Description ==
 
-This plugin is completely free, and offers no pro versions.
+This plugin is completely free, and offers no pro versions.  <a href='https://properprogramming.com'>Custom Website and WordPress Plugin Assistance</a> is available.
 
 I created this plugin with the desire to help change titles case to various case styles on posts and categories.  Initially this was for handling issues due to importing improper cased data but I soon realized many people needed this.
 
@@ -55,4 +55,4 @@ I'd love to add sentence case and also add an option to automatically format the
 * A completely free plugin.
 
 == Donations ==
-Donations can be made to https://paypal.me/properprogramming?locale.x=en_US
+<a rel='no-follow' href='https://paypal.me/properprogramming?locale.x=en_US'>Donate Now!</a>
