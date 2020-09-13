@@ -47,7 +47,7 @@ e.g.
 == Frequently Asked Questions ==
 
 = What is the future possibility's for this plugin =
-I'd love to add sentence case and also add an option to automatically format the title when the document is first inserted as well as updated.  Please contact me if you'd like to rush the process by paying me for my time.
+I'd love to add sentence case and also add an option to automatically format the title when the document is first inserted as well as updated.  Please <a href="https://properprogramming.com/contact">contact me</a> if you'd like to rush the process by paying me for my time.
 
 == Changelog ==
 
