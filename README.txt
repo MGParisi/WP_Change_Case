@@ -19,6 +19,8 @@ The title transformation plugin adds administration functions to the management 
 
 This plugin is completely free, and offers no pro versions.  <a href='https://properprogramming.com'>Custom Website and WordPress Plugin Assistance</a> is available.
 
+<a href='https://properprogramming.com/tools/wp-change-titles-case/'>Please visit my website for screenshots and more.</a>
+
 I created this plugin with the desire to help change titles case to various case styles on posts and categories.  Initially this was for handling issues due to importing improper cased data but I soon realized many people needed this.
 
 The transform case plugin works by modifying the titles and provides certain advantages over CSS solutions by providing advanced control and customization.
