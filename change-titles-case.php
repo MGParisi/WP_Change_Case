@@ -9,7 +9,7 @@
  * that starts the plugin.
  *
  * @link              http://properprogramming.com
- * @since             1.0.0
+ * @since             1.0.3
  * @package           Change_Titles_Case
  *
  * @wordpress-plugin
