@@ -6,7 +6,7 @@ Author URI: https://properprogramming.com
 Donate link: https://paypal.me/properprogramming?locale.x=en_US
 Tags: title, caps, backend, utilities, admin
 Requires at least: 5.0
-Tested up to: 5.5.1
+Tested up to: 5.8.2
 Requires PHP: 7.1
 Stable tag: 1.0.1
 Version: 1.0.1
