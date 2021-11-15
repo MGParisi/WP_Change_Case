@@ -8,12 +8,12 @@ Tags: title, caps, backend, utilities, admin
 Requires at least: 5.0
 Tested up to: 5.8.2
 Requires PHP: 7.1
-Stable tag: 1.0.2
-Version: 1.0.2
+Stable tag: 1.0.3
+Version: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-The title transformation plugin adds administration functions to the management of posts, pages, categories and most custom content (ACF Compatible).
+The title transformation (converts) plugin adds administration functions to the management of posts, pages, categories and most custom content (ACF Compatible).
 
 == Description ==
 
@@ -21,13 +21,13 @@ This plugin is completely free, and offers no pro versions.  <a href='https://pr
 
 <a href='https://properprogramming.com/tools/wp-change-titles-case/'>Please visit my website for screenshots and more.</a>
 
-I created this plugin with the desire to help change titles case to various case styles on posts and categories.  Initially this was for handling issues due to importing improper cased data but I soon realized many people needed this.
+I created this plugin with the desire to help convert titles or transform titles case to various case styles on posts and categories.  Initially this was for handling issues due to importing improper cased data but I soon realized many people needed this.
 
 The transform case plugin works by modifying the titles and provides certain advantages over CSS solutions by providing advanced control and customization.
 
 Currently, the plugin supports Upper, Lower, and Mixed/Snake Case.  Sentence case is desired, but currently not supported due to the need for a list of nouns.  It should work with all latin languages, but is not currently language specific in its design.
 
-This plugin allows you to set words/acronyms that will keep these key words lower or upper case.
+This plugin allows you to set words/acronyms that will keep these key words lower or upper case.  This can allow you to change the case frequently.
 
 Since this plugin runs from the Admin screen.  There is no requirement to keep this plugin after its transformation is performed, and it should not degrade the performance of your server.
 
