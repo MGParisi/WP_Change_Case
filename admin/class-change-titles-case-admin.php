@@ -238,8 +238,9 @@ class c_t_c_Change_Case_Data_Admin {
 			'change-titles-case/v1',
 			'/init/',
 			[
-				'methods'  => ['POST'],
-				'callback' => [$this, 'get_CSV_Post_Request_Handler'],
+				'methods'             => ['POST'],
+				'callback'            => [$this, 'get_CSV_Post_Request_Handler'],
+				'permission_callback' => '__return_true',
 			]
 		);
 	}
