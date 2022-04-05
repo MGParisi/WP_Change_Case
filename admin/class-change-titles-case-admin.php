@@ -240,7 +240,7 @@ class c_t_c_Change_Case_Data_Admin {
 			[
 				'methods'             => ['POST'],
 				'callback'            => [$this, 'get_CSV_Post_Request_Handler'],
-				'permission_callback' => '__return_true',
+				'permission_callback' => 'edit_others_posts',
 			]
 		);
 	}
